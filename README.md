@@ -1,8 +1,14 @@
-### Using with docker container.
+### Using run testing via docker container.
+
+#### 1. Cone repository from github
+```bash
+$ git clone https://github.com/nattaponra/testing.git
+```
 
 #### 1. Run phpfpm container.
 ```bash
-$ docker exec -i phpfpm composer install
+cd testing/
+$ docker-compose up -d
 ```
 
 #### 2. Install php packages with Composer.
@@ -11,16 +17,44 @@ $ docker exec -i phpfpm composer install
 ```
 #### 3. Run Testing
 ```bash
-$ docker exec -it phpfpm ./vendor/bin/phpunit test
+$ docker exec -it phpfpm ./vendor/bin/phpunit tests
 ```
 #### Result:
 ```bash
 PHPUnit 6.5.13 by Sebastian Bergmann and contributors.
 
-.                                                                   1 / 1 (100%)
+....                                                                4 / 4 (100%)
 
-Time: 25 ms, Memory: 4.00MB
+Time: 26 ms, Memory: 4.00MB
 
-OK (1 test, 1 assertion)
+OK (4 tests, 4 assertions)
+```
+
+
+### Using run testing via php on host.
+
+#### 1. Cone repository from github
+```bash
+$ git clone https://github.com/nattaponra/testing.git
+```
+
+#### 2. Install php packages with Composer.
+```bash
+cd testing/source-code
+$ composer install
+```
+#### 3. Run Testing
+```bash
+$ php ./vendor/bin/phpunit tests
+```
+#### Result:
+```bash
+PHPUnit 6.5.13 by Sebastian Bergmann and contributors.
+
+....                                                                4 / 4 (100%)
+
+Time: 26 ms, Memory: 4.00MB
+
+OK (4 tests, 4 assertions)
 ```
 
