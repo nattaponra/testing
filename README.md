@@ -1,6 +1,6 @@
 ## Using run testing via docker container.
 
-#### 1. Cone repository from github
+#### 1. Clone repository from github
 ```bash
 $ git Clone https://github.com/nattaponra/testing.git
 ```
