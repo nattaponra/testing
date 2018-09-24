@@ -2,22 +2,22 @@
 
 #### 1. Cone repository from github
 ```bash
-$ git clone https://github.com/nattaponra/testing.git
+$ git Clone https://github.com/nattaponra/testing.git
 ```
 
-#### 1. Run phpfpm container.
+#### 2. Run phpfpm container.
 ```bash
 cd testing/
 $ docker-compose up -d
 ```
 
-#### 2. Install php packages with Composer.
+#### 3. Install php packages with Composer.
 ```bash
 $ docker exec -i phpfpm composer install
 ```
-#### 3. Run Testing
+#### 4. Run Testing
 ```bash
-$ docker exec -it phpfpm ./vendor/bin/phpunit tests
+$ docker exec -i phpfpm ./vendor/bin/phpunit tests
 ```
 #### Result:
 ```bash
@@ -33,7 +33,7 @@ OK (4 tests, 4 assertions)
 
 ## Using run testing via php on host.
 
-#### 1. Cone repository from github
+#### 1. Clone repository from github
 ```bash
 $ git clone https://github.com/nattaponra/testing.git
 ```
