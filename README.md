@@ -24,24 +24,20 @@ public function validateTriangle($a, $b, $c)
 
 ### Control Flow Graph
 ![alt text](https://nattaponra.github.io/testing/img/Flow-Graph.png)
-| Path  | Decision | Inputs | Expected Output |
-| ------------- | ------ | ------- | ------------- | ------------- |
-| Content Cell  | Content Cell  | | |
-| Content Cell  | Content Cell  | | |
 
 ### Coverage Table (Branch Coverage) 
 
-    - Path
-
-    - Decision
-
-    - Inputs
-
-    - Expected Output
-
  
+| Path  | Node 2 |	 Node 5 |	Node 6 |	Node 8 | Inputs | Expected Output |
+| -------------  | -------------  | -------------  | -------------  | -------------  | -------------  | -------------  |
+| P1:1-2-3-4-5-6-7-15 | TRUE |	TRUE |	TRUE |	- |	a=5,b=5,c=5	| Equilateral |
+| P2:1-2-3-4-5-6-8-9-15 |	TRUE |	TRUE |	FALSE |	TRUE |	a=5,b=10,c=14 |	Scalene |
+| P3:1-2-3-4-5-6-8-10-11-12-15 |	TRUE |	TRUE |	FALSE |	FALSE |	a=5,b=10,c=10 |	Isosceles |
+| P4:1-2-4-5-13-14-15 |	FALSE |	FALSE |	- |	- |	a=5,b=10,c=20 |	Not a Triangle |
 
-## Using run testing via docker container.
+
+
+## Using run testing with docker container.
 
 #### 1. Clone repository from github
 ```bash
@@ -74,7 +70,7 @@ OK (4 tests, 4 assertions)
 ```
 
 
-## Using run testing via php on host.
+## Using run testing with php on host.
 
 #### 1. Clone repository from github
 ```bash

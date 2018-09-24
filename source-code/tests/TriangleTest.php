@@ -29,7 +29,7 @@ class TriangleTest extends TestCase
 
     public function testNotATriangleTriangle(){
         $triangle = new  Triangle();
-        $result = $triangle->validateTriangle(1,5,10);
+        $result = $triangle->validateTriangle(5,10,20);
         $this->assertEquals("Not a Triangle",$result);
     }
 
