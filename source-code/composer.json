@@ -1,0 +1,18 @@
+{
+    "name": "nattaponra/testing",
+    "authors": [
+        {
+            "name": "Nattapon Rakthong",
+            "email": "nattapon.rakthong@gmail.com"
+        }
+    ],
+
+    "autoload": {
+        "psr-4": {"nattaponra\\testing\\": "src/"}
+    },
+
+    "require": {},
+    "require-dev": {
+        "phpunit/phpunit": "^6.5"
+    }
+}
