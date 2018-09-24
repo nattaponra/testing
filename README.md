@@ -79,14 +79,14 @@ class TriangleTest extends TestCase
 
 #### 1. Clone repository from github
 ```bash
-$ git Clone https://github.com/nattaponra/testing.git
+$ git clone https://github.com/nattaponra/testing.git
 ```
- 
-#### 3. Install php packages with Composer.
+
+#### 2. Install php packages with Composer.
 ```bash
 $ docker run -i --rm --name phpfpm-test -v $(pwd)/source-code:/app bitnami/php-fpm:7.0 composer install
 ```
-#### 4. Run Testing
+#### 3. Run Testing
 ```bash
 $ docker run -i --rm --name phpfpm-test -v $(pwd)/source-code:/app bitnami/php-fpm:7.0 ./vendor/bin/phpunit tests
 ```
