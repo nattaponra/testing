@@ -1,4 +1,4 @@
-### Using run testing via docker container.
+## Using run testing via docker container.
 
 #### 1. Cone repository from github
 ```bash
@@ -31,7 +31,7 @@ OK (4 tests, 4 assertions)
 ```
 
 
-### Using run testing via php on host.
+## Using run testing via php on host.
 
 #### 1. Cone repository from github
 ```bash
