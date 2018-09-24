@@ -1,23 +1,29 @@
 ### Source Code
 ```php
-
-public function validateTriangle($a, $b, $c)
+ public function validateTriangle($a, $b, $c)
     {
-        $isATriangle = False;
-        if (($a < $b + $c) && ($b < $a + $c) && ($c < $a + $b)) {
-            $isATriangle = True;
-        }
-        if ($isATriangle) {
-            if ($a == $b && $b == $c) {
-                return "Equilateral";
-            } else if ($a != $b && $a != $c && $b != $c) {
-                return "Scalene";
-            } else {
-                return "Isosceles";
-            }
-        } else {
-            return "Not a Triangle";
-        }
+        $isATriangle = False;                                       # 1
+
+        if (($a < $b + $c) && ($b < $a + $c) && ($c < $a + $b)) {   # 2
+            $isATriangle = True;                                    # 3
+        }                                                           # 4
+
+        if ($isATriangle) {                                         # 5
+
+            if ($a == $b && $b == $c) {                             # 6
+                return "Equilateral";                               # 7
+
+            } else if ($a != $b && $a != $c && $b != $c) {          # 8
+                return "Scalene";                                   # 9
+
+            } else {                                                # 10
+                return "Isosceles";                                 # 11
+            }                                                       # 12
+
+        } else {                                                    # 13
+            return "Not a Triangle";                                # 14
+        }                                                           # 15
+
     }
 ```
 
