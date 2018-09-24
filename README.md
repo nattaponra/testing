@@ -35,6 +35,38 @@ public function validateTriangle($a, $b, $c)
 | P3:1-2-3-4-5-6-8-10-11-12-15 |	TRUE |	TRUE |	FALSE |	FALSE |	a=5,b=10,c=10 |	Isosceles |
 | P4:1-2-4-5-13-14-15 |	FALSE |	FALSE |	- |	- |	a=5,b=10,c=20 |	Not a Triangle |
 
+### Test Case
+```php
+class TriangleTest extends TestCase
+{
+
+     public function testEquilateralTriangle(){
+         $triangle = new  Triangle();
+         $result = $triangle->validateTriangle(5,5,5);
+         $this->assertEquals("Equilateral",$result);
+     }
+
+    public function testScaleneTriangle(){
+        $triangle = new  Triangle();
+        $result = $triangle->validateTriangle(5,10,14);
+        $this->assertEquals("Scalene",$result);
+    }
+
+    public function testIsoscelesTriangle(){
+        $triangle = new  Triangle();
+        $result = $triangle->validateTriangle(5,10,10);
+        $this->assertEquals("Isosceles",$result);
+    }
+
+    public function testNotATriangleTriangle(){
+        $triangle = new  Triangle();
+        $result = $triangle->validateTriangle(5,10,20);
+        $this->assertEquals("Not a Triangle",$result);
+    }
+
+
+}
+```
 
 
 ## Using run testing with docker container.

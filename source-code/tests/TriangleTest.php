@@ -11,7 +11,7 @@ class TriangleTest extends TestCase
 
      public function testEquilateralTriangle(){
          $triangle = new  Triangle();
-         $result = $triangle->validateTriangle(1,1,1);
+         $result = $triangle->validateTriangle(5,5,5);
          $this->assertEquals("Equilateral",$result);
      }
 
