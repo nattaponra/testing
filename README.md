@@ -1,5 +1,33 @@
+### Source Code
+```php
+
+public function validateTriangle($a, $b, $c)
+    {
+        $isATriangle = False;
+        if (($a < $b + $c) && ($b < $a + $c) && ($c < $a + $b)) {
+            $isATriangle = True;
+        }
+        if ($isATriangle) {
+            if ($a == $b && $b == $c) {
+                return "Equilateral";
+            } else if ($a != $b && $a != $c && $b != $c) {
+                return "Scalene";
+            } else {
+                return "Isosceles";
+            }
+        } else {
+            return "Not a Triangle";
+        }
+    }
+```
+
 
 ### Control Flow Graph
+![alt text](https://nattaponra.github.io/testing/img/Flow-Graph.png)
+| Path  | Decision | Inputs | Expected Output |
+| ------------- | ------ | ------- | ------------- | ------------- |
+| Content Cell  | Content Cell  | | |
+| Content Cell  | Content Cell  | | |
 
 ### Coverage Table (Branch Coverage) 
 
