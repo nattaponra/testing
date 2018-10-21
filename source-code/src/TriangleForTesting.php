@@ -14,7 +14,7 @@ class TriangleForTesting
      */
     public function validateTriangle($name, $a, $b, $c)
     {
-        $path = []; //1-2-3-4-5-6-13 Equilateral, 1-2-3-4-7-8-13 Scalene, 1-2-3-4-9-10 Isosceles, 1-4-11-12-13
+        $path = [];
 
         $isATriangle = False;                                       $path[] = "1";  # Node 1
 
@@ -47,8 +47,4 @@ class TriangleForTesting
         return $TriangleType;
     }
 
-
-    public function keepNode(array $path,$nodeNumber){
-        $path[] = $nodeNumber;
-    }
 }
