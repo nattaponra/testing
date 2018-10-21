@@ -1,29 +1,30 @@
 ### Source Code
 ```php
- public function validateTriangle($a, $b, $c)
+    public function validateTriangle($a, $b, $c)
     {
         $isATriangle = False;                                       # 1
 
         if (($a < $b + $c) && ($b < $a + $c) && ($c < $a + $b)) {   # 2
             $isATriangle = True;                                    # 3
-        }                                                           # 4
+        }
 
-        if ($isATriangle) {                                         # 5
+        if ($isATriangle) {                                         # 4
 
-            if ($a == $b && $b == $c) {                             # 6
-                return "Equilateral";                               # 7
+            if ($a == $b && $b == $c) {                             # 5
+                $TriangleType = "Equilateral";                      # 6
 
-            } else if ($a != $b && $a != $c && $b != $c) {          # 8
-                return "Scalene";                                   # 9
+            } else if ($a != $b && $a != $c && $b != $c) {          # 7
+                $TriangleType = "Scalene";                          # 8
 
-            } else {                                                # 10
-                return "Isosceles";                                 # 11
-            }                                                       # 12
+            } else {                                                # 9
+                $TriangleType = "Isosceles";                        # 10
+            }
 
-        } else {                                                    # 13
-            return "Not a Triangle";                                # 14
-        }                                                           # 15
+        } else {                                                    # 11
+            $TriangleType = "Not a Triangle";                       # 12
+        }
 
+        return $TriangleType;                                       # 13
     }
 ```
 
@@ -34,39 +35,44 @@
 ### Coverage Table (Branch Coverage) 
 
  
-| Path  | Node 2 |	 Node 5 |	Node 6 |	Node 8 | Inputs | Expected Output |
-| -------------  | -------------  | -------------  | -------------  | -------------  | -------------  | -------------  |
-| P1:1-2-3-4-5-6-7-15 | TRUE |	TRUE |	TRUE |	- |	a=5,b=5,c=5	| Equilateral |
-| P2:1-2-3-4-5-6-8-9-15 |	TRUE |	TRUE |	FALSE |	TRUE |	a=5,b=10,c=14 |	Scalene |
-| P3:1-2-3-4-5-6-8-10-11-12-15 |	TRUE |	TRUE |	FALSE |	FALSE |	a=5,b=10,c=10 |	Isosceles |
-| P4:1-2-4-5-13-14-15 |	FALSE |	FALSE |	- |	- |	a=5,b=10,c=20 |	Not a Triangle |
+| Path  | Node 2 |	 Node 4 |	Node 5 |	Node 7 | Node 9 | Inputs | Expected Output |
+| -------------  | -------------  | -------------  | -------------  | -------------  | -------------  | -------------  | -------------  |
+| P1:1-2-3-4-5-6-13 | TRUE | TRUE |	TRUE |	- | - |	a=5,b=5,c=5	| Equilateral |
+| P2:1-2-3-4-5-7-8-13 |	TRUE | TRUE |	FALSE |	TRUE | - |	a=5,b=10,c=14 |	Scalene |
+| P3:1-2-3-4-5-7-9-10-13 |	TRUE |	TRUE |	FALSE |	FALSE | TRUE |	a=5,b=10,c=10 |	Isosceles |
+| P4:1-2-4-11-12-13 |	FALSE |	FALSE |	- |	- | - | a=5,b=10,c=20 |	Not a Triangle |
 
 ### Test Case
 ```php
 class TriangleTest extends TestCase
 {
+    private  $triangle;
+    protected function setUp()
+    {
+        //$this->triangle = new Triangle();
+        $this->triangle = new TriangleForTesting();
 
-     public function testEquilateralTriangle(){
-         $triangle = new  Triangle();
-         $result = $triangle->validateTriangle(5,5,5);
+    }
+
+    public function testEquilateralTriangle(){
+
+         $result = $this->triangle->validateTriangle("P1",5,5,5);
          $this->assertEquals("Equilateral",$result);
      }
 
     public function testScaleneTriangle(){
-        $triangle = new  Triangle();
-        $result = $triangle->validateTriangle(5,10,14);
+
+        $result = $this->triangle->validateTriangle("P2",5,10,14);
         $this->assertEquals("Scalene",$result);
     }
 
     public function testIsoscelesTriangle(){
-        $triangle = new  Triangle();
-        $result = $triangle->validateTriangle(5,10,10);
+        $result = $this->triangle->validateTriangle("P3",5,10,10);
         $this->assertEquals("Isosceles",$result);
     }
 
     public function testNotATriangleTriangle(){
-        $triangle = new  Triangle();
-        $result = $triangle->validateTriangle(5,10,20);
+        $result = $this->triangle->validateTriangle("P4",5,10,20);
         $this->assertEquals("Not a Triangle",$result);
     }
 

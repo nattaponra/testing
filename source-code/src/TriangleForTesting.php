@@ -14,11 +14,12 @@ class TriangleForTesting
      */
     public function validateTriangle($name, $a, $b, $c)
     {
-        $path = [];
+        $path = []; //1-2-3-4-5-6-13 Equilateral, 1-2-3-4-7-8-13 Scalene, 1-2-3-4-9-10 Isosceles, 1-4-11-12-13
 
         $isATriangle = False;                                       $path[] = "1";  # Node 1
 
-        if (($a < $b + $c) && ($b < $a + $c) && ($c < $a + $b)) {   $path[] = "2";  # Node 2
+                                                                    $path[] = "2";
+        if (($a < $b + $c) && ($b < $a + $c) && ($c < $a + $b)) {                   # Node 2
             $isATriangle = True;                                    $path[] = "3";  # Node 3
         }
 
@@ -27,19 +28,21 @@ class TriangleForTesting
             if ($a == $b && $b == $c) {                             $path[] = "5";  # Node 5
                 $TriangleType = "Equilateral";                      $path[] = "6";  # Node 6
 
-            } else if ($a != $b && $a != $c && $b != $c) {          $path[] = "7";  # Node 7
+            } else if ($a != $b && $a != $c && $b != $c) {          $path[] = "5";  $path[] = "7"; # Node 7
                 $TriangleType = "Scalene";                          $path[] = "8";  # Node 8
 
-            } else {                                                $path[] = "9";  # Node 9
+            } else {                                                $path[] = "5"; $path[] = "7"; $path[] = "9";  # Node 9
                 $TriangleType = "Isosceles";                        $path[] = "10"; # Node 10
             }
 
-        } else {                                                    $path[] = "11"; # Node 11
+        } else {                                                    $path[] = "4"; $path[] = "11"; # Node 11
             $TriangleType = "Not a Triangle";                       $path[] = "12"; # Node 12
         }
                                                                     $path[] = "13"; # Node 13
         /** Print Path */
-        print_r(PHP_EOL.$name.":".implode("-",$path));
+        sort($path);
+
+        print_r(PHP_EOL.$name.":".implode("-", $path));
 
         return $TriangleType;
     }
