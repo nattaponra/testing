@@ -16,23 +16,26 @@ class Triangle
 
         if (($a < $b + $c) && ($b < $a + $c) && ($c < $a + $b)) {   # 2
             $isATriangle = True;                                    # 3
-        }                                                           # 4
+        }
 
-        if ($isATriangle) {                                         # 5
+        if ($isATriangle) {                                         # 4
 
-            if ($a == $b && $b == $c) {                             # 6
-                return "Equilateral";                               # 7
+            if ($a == $b && $b == $c) {                             # 5
+                $TriangleType = "Equilateral";                      # 6
 
-            } else if ($a != $b && $a != $c && $b != $c) {          # 8
-                return "Scalene";                                   # 9
+            } else if ($a != $b && $a != $c && $b != $c) {          # 7
+                $TriangleType = "Scalene";                          # 8
 
-            } else {                                                # 10
-                return "Isosceles";                                 # 11
-            }                                                       # 12
+            } else {                                                # 9
+                $TriangleType = "Isosceles";                        # 10
+            }
 
-        } else {                                                    # 13
-            return "Not a Triangle";                                # 14
-        }                                                           # 15
+        } else {                                                    # 11
+            $TriangleType = "Not a Triangle";                       # 12
+        }
 
+        return $TriangleType;                                       # 13
     }
+
+
 }

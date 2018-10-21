@@ -4,32 +4,38 @@ namespace nattaponra\testing\tests;
 
 
 use nattaponra\testing\Triangle;
+use nattaponra\testing\TriangleForTesting;
 use PHPUnit\Framework\TestCase;
 
 class TriangleTest extends TestCase
 {
+    private  $triangle;
+    protected function setUp()
+    {
+        //$this->triangle = new Triangle();
+        $this->triangle = new TriangleForTesting();
 
-     public function testEquilateralTriangle(){
-         $triangle = new  Triangle();
-         $result = $triangle->validateTriangle(5,5,5);
+    }
+
+    public function testEquilateralTriangle(){
+
+         $result = $this->triangle->validateTriangle("P1",5,5,5);
          $this->assertEquals("Equilateral",$result);
      }
 
     public function testScaleneTriangle(){
-        $triangle = new  Triangle();
-        $result = $triangle->validateTriangle(5,10,14);
+
+        $result = $this->triangle->validateTriangle("P2",5,10,14);
         $this->assertEquals("Scalene",$result);
     }
 
     public function testIsoscelesTriangle(){
-        $triangle = new  Triangle();
-        $result = $triangle->validateTriangle(5,10,10);
+        $result = $this->triangle->validateTriangle("P3",5,10,10);
         $this->assertEquals("Isosceles",$result);
     }
 
     public function testNotATriangleTriangle(){
-        $triangle = new  Triangle();
-        $result = $triangle->validateTriangle(5,10,20);
+        $result = $this->triangle->validateTriangle("P4",5,10,20);
         $this->assertEquals("Not a Triangle",$result);
     }
 
